@@ -11,7 +11,7 @@ let cssmin = require('gulp-cssmin');
 let sequence = require('gulp-sequence');
 
 gulp.task('compile-scripts', () => {
-	return browserify('src/js/index.js')
+	return browserify('www/js/app.js')
 	.transform('babelify', {
 		presets: ['react', 'env'],
 	})
