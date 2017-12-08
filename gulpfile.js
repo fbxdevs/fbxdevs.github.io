@@ -9,6 +9,42 @@ let htmlmin = require('gulp-htmlmin');
 let imagemin = require('gulp-imagemin');
 let cssmin = require('gulp-cssmin');
 let sequence = require('gulp-sequence');
+let fs = require('fs');
+
+let getSymverFromPackage = () => {
+	let pkg = require('./package.json');
+
+	return pkg.version;
+};
+
+let writeSymverToPackage = (symverStr) => {
+	let pkg = require('./package.json');
+	pkg.version = symverStr;
+
+	fs.writeFileSync('./package.json', JSON.stringify(pkg, 0, 4));
+};
+
+let bumpVersion = (index) => {
+	let symverStr = getSymverFromPackage();
+	let versions = symverStr.split('.');
+
+	versions[index]++;
+
+	symverStr = `${versions[0]}.${versions[1]}.${versions[2]}`;
+	writeSymverToPackage(symverStr);
+};
+
+gulp.task('bump-major', () => {
+	bumpVersion(0);
+});
+
+gulp.task('bump-minor', () => {
+	bumpVersion(1);
+});
+
+gulp.task('bump-patch', () => {
+	bumpVersion(2);
+});
 
 gulp.task('compile-scripts', () => {
 	return browserify('www/js/app.js')
