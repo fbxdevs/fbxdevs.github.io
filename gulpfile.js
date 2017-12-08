@@ -1,20 +1,19 @@
-var gulp       = require('gulp'),
-	plumber    = require('gulp-plumber'),
-	browserify = require('browserify'),
-	source     = require('vinyl-source-stream'),
-	buffer     = require('vinyl-buffer'),
-	concat     = require('gulp-concat'),
-	uglify     = require('gulp-uglify'),
-	rename     = require('gulp-rename'),
-	htmlmin    = require('gulp-htmlmin'),
-	imagemin   = require('gulp-imagemin'),
-	cssmin     = require('gulp-cssmin'),
-	sequence   = require('gulp-sequence');
+let gulp = require('gulp');
+let plumber = require('gulp-plumber');
+let browserify = require('browserify');
+let source = require('vinyl-source-stream');
+let concat = require('gulp-concat');
+let uglify = require('gulp-uglify');
+let rename = require('gulp-rename');
+let htmlmin = require('gulp-htmlmin');
+let imagemin = require('gulp-imagemin');
+let cssmin = require('gulp-cssmin');
+let sequence = require('gulp-sequence');
 
-gulp.task('compile-scripts', function() {
+gulp.task('compile-scripts', () => {
 	return browserify('src/js/index.js')
 	.transform('babelify', {
-		presets: ['react', 'es2015', 'es2016', 'es2017']
+		presets: ['react', 'env'],
 	})
 	.bundle()
 	.pipe(source('app.js'))
@@ -22,7 +21,7 @@ gulp.task('compile-scripts', function() {
     .pipe(gulp.dest('dist/js'));
 });
 
-gulp.task('min-scripts', function() {
+gulp.task('min-scripts', () => {
 	return gulp.src(['dist/js/app.js'])
 	.pipe(plumber())
 	.pipe(uglify())
@@ -30,7 +29,7 @@ gulp.task('min-scripts', function() {
     .pipe(gulp.dest('dist/js'));
 });
 
-gulp.task('min-html', function() {
+gulp.task('min-html', () => {
 	return gulp.src('src/**/*.html')
 	.pipe(plumber())
 	.pipe(htmlmin({
@@ -47,7 +46,7 @@ gulp.task('min-html', function() {
 	.pipe(gulp.dest('dist'));
 });
 
-gulp.task('min-css', function() {
+gulp.task('min-css', () => {
 	return gulp.src('src/css/**/*.css')
 	.pipe(plumber())
 	.pipe(concat('app.css'))
@@ -56,7 +55,7 @@ gulp.task('min-css', function() {
 	.pipe(gulp.dest('dist/css'));
 });
 
-gulp.task('fonts', function() {
+gulp.task('fonts', () => {
 	var fontDir = 'src/fonts/';
 	return gulp.src([fontDir + '*.ttf',
 			  fontDir + '*.oft', 
@@ -68,22 +67,22 @@ gulp.task('fonts', function() {
 	.pipe(gulp.dest('dist/fonts'));
 });
 
-gulp.task('min-image', function() {
+gulp.task('min-image', () => {
 	return gulp.src('src/img/**/*')
 	.pipe(plumber())
 	.pipe(imagemin())
 	.pipe(gulp.dest('dist/img'));
 });
 
-gulp.task('prod', function() {
+gulp.task('prod', () => {
 	process.env.NODE_ENV = 'production';
 });
 
-gulp.task('all', function(callback) {
+gulp.task('all', (callback) => {
 	sequence('prod', 'compile-scripts', 'min-scripts', ['min-html', 'min-css', 'fonts'])(callback);
 });
 
-gulp.task('watch', function() {
+gulp.task('watch', () => {
 	gulp.watch('src/**', ['all']);
 });
 
