@@ -68,7 +68,7 @@ gulp.task('min-scripts', () => {
 });
 
 gulp.task('min-html', () => {
-	return gulp.src('src/**/*.html')
+	return gulp.src('www/**/*.html')
 	.pipe(plumber())
 	.pipe(htmlmin({
 		collapseWhitespace: true,
@@ -98,7 +98,7 @@ gulp.task('sass', () => {
 });
 
 gulp.task('fonts', () => {
-	var fontDir = 'src/fonts/';
+	var fontDir = 'www/fonts/';
 	return gulp.src([fontDir + '*.ttf',
 			  fontDir + '*.oft', 
 			  fontDir + '*.woff', 
@@ -110,7 +110,7 @@ gulp.task('fonts', () => {
 });
 
 gulp.task('min-image', () => {
-	return gulp.src('src/img/**/*')
+	return gulp.src('www/img/**/*')
 	.pipe(plumber())
 	.pipe(imagemin())
 	.pipe(gulp.dest('dist/img'));
@@ -125,7 +125,7 @@ gulp.task('all', (callback) => {
 });
 
 gulp.task('watch', () => {
-	gulp.watch('src/**', ['all']);
+	gulp.watch('www/**', ['all']);
 });
 
 gulp.task('default', sequence('all', 'watch'));
