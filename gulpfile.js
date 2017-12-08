@@ -1,6 +1,8 @@
 let gulp = require('gulp');
 let plumber = require('gulp-plumber');
 let browserify = require('browserify');
+let sass = require('gulp-sass');
+let autoprefixer = require('gulp-autoprefixer');
 let source = require('vinyl-source-stream');
 let concat = require('gulp-concat');
 let uglify = require('gulp-uglify');
@@ -82,12 +84,16 @@ gulp.task('min-html', () => {
 	.pipe(gulp.dest('dist'));
 });
 
-gulp.task('min-css', () => {
-	return gulp.src('src/css/**/*.css')
+gulp.task('sass', () => {
+	return gulp.src(['www/scss/**/*.scss', 'www/scss/**/*.css', 'www/css/**/*.css'])
 	.pipe(plumber())
+	.pipe(sass.sync())
+	.pipe(autoprefixer({
+		browsers: ['last 3 versions'],
+	}))
 	.pipe(concat('app.css'))
 	.pipe(cssmin())
-	.pipe(rename({suffix:'.min'}))
+	.pipe(rename({suffix: '.min'}))
 	.pipe(gulp.dest('dist/css'));
 });
 
@@ -115,7 +121,7 @@ gulp.task('prod', () => {
 });
 
 gulp.task('all', (callback) => {
-	sequence('prod', 'compile-scripts', 'min-scripts', ['min-html', 'min-css', 'fonts'])(callback);
+	sequence('prod', 'compile-scripts', 'min-scripts', ['min-html', 'sass', 'fonts'])(callback);
 });
 
 gulp.task('watch', () => {
