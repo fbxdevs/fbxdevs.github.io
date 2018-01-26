@@ -81,7 +81,7 @@ gulp.task('compile-scripts', () => {
     .pipe(gulp.dest('js'));
 });
 
-gulp.task('min-scripts', () => {
+gulp.task('min-scripts', ['compile-scripts'], () => {
 	return gulp.src(['js/app.js'])
 	.pipe(plumber())
 	.pipe(uglify())
@@ -143,11 +143,31 @@ gulp.task('prod', () => {
 });
 
 gulp.task('all', (callback) => {
-	sequence('prod', 'compile-scripts', 'min-scripts', ['min-html', 'sass', 'fonts'])(callback);
+	sequence('prod', ['min-scripts', 'min-html', 'sass', 'fonts'])(callback);
 });
 
 gulp.task('watch', () => {
 	gulp.watch('src/**', ['all']);
 });
 
-gulp.task('default', sequence('all', 'watch'));
+gulp.task('watch-scripts', () => {
+	gulp.watch('src/js/**/*.js', ['min-scripts']);
+});
+
+gulp.task('watch-html', () => {
+	gulp.watch('src/**/*.html', ['min-html']);
+});
+
+gulp.task('watch-sass', () => {
+	gulp.watch(['src/scss/**/*.scss', 'src/scss/**/*.css', 'src/css/**/*.css'], ['sass']);
+});
+
+gulp.task('watch-fonts', () => {
+	gulp.watch(['src/fonts/**'], ['fonts']);
+});
+
+gulp.task('watch-img', () => {
+	gulp.watch(['src/img/**'], ['min-image']);
+});
+
+gulp.task('default', sequence('all', ['watch-scripts', 'watch-html', 'watch-sass', 'watch-fonts', 'watch-img']));
