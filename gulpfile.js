@@ -13,6 +13,13 @@ let cssmin = require('gulp-cssmin');
 let sequence = require('gulp-sequence');
 let fs = require('fs');
 
+let express = require('express');
+let app = express();
+let http = require('http');
+let open = require('open');
+
+app.use(express.static(__dirname));
+
 let getSymverFromPackage = () => {
 	let pkg = require('./package.json');
 
@@ -138,16 +145,32 @@ gulp.task('min-image', () => {
 	.pipe(gulp.dest('img'));
 });
 
+gulp.task('serve', () => {
+	let server = http.createServer(app);
+	let serverPort = 3000;
+
+	server.listen(serverPort, () => {
+		let url = `http://localhost:${serverPort}`;
+		console.log(`Now serving the page at ${url}`);
+		open(url);
+	});
+
+	process.on('SIGINT', function() {
+		server.close();
+		process.exit();
+	});
+});
+
 gulp.task('prod', () => {
 	process.env.NODE_ENV = 'production';
 });
 
-gulp.task('all', (callback) => {
+gulp.task('build-all', (callback) => {
 	sequence('prod', ['min-scripts', 'min-html', 'sass', 'fonts'])(callback);
 });
 
 gulp.task('watch', () => {
-	gulp.watch('src/**', ['all']);
+	gulp.watch('src/**', ['build-all']);
 });
 
 gulp.task('watch-scripts', () => {
@@ -170,4 +193,4 @@ gulp.task('watch-img', () => {
 	gulp.watch(['src/img/**'], ['min-image']);
 });
 
-gulp.task('default', sequence('all', ['watch-scripts', 'watch-html', 'watch-sass', 'watch-fonts', 'watch-img']));
+gulp.task('default', sequence('build-all', ['watch-scripts', 'watch-html', 'watch-sass', 'watch-fonts', 'watch-img', 'serve']));
