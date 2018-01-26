@@ -71,26 +71,26 @@ gulp.task('bump-patch', () => {
 });
 
 gulp.task('compile-scripts', () => {
-	return browserify('www/js/app.js')
+	return browserify('src/js/app.js')
 	.transform('babelify', {
 		presets: ['react', 'env'],
 	})
 	.bundle()
 	.pipe(source('app.js'))
 	.pipe(plumber())
-    .pipe(gulp.dest('dist/js'));
+    .pipe(gulp.dest('js'));
 });
 
 gulp.task('min-scripts', () => {
-	return gulp.src(['dist/js/app.js'])
+	return gulp.src(['js/app.js'])
 	.pipe(plumber())
 	.pipe(uglify())
 	.pipe(rename({suffix:'.min'}))
-    .pipe(gulp.dest('dist/js'));
+    .pipe(gulp.dest('js'));
 });
 
 gulp.task('min-html', () => {
-	return gulp.src('www/**/*.html')
+	return gulp.src('src/**/*.html')
 	.pipe(plumber())
 	.pipe(htmlmin({
 		collapseWhitespace: true,
@@ -103,11 +103,11 @@ gulp.task('min-html', () => {
 		removeOptionalTags: true,
 		removeRedundantAttributes: true
 	}))
-	.pipe(gulp.dest('dist'));
+	.pipe(gulp.dest('./'));
 });
 
 gulp.task('sass', () => {
-	return gulp.src(['www/scss/**/*.scss', 'www/scss/**/*.css', 'www/css/**/*.css'])
+	return gulp.src(['src/scss/**/*.scss', 'src/scss/**/*.css', 'src/css/**/*.css'])
 	.pipe(plumber())
 	.pipe(sass.sync())
 	.pipe(autoprefixer({
@@ -116,11 +116,11 @@ gulp.task('sass', () => {
 	.pipe(concat('app.css'))
 	.pipe(cssmin())
 	.pipe(rename({suffix: '.min'}))
-	.pipe(gulp.dest('dist/css'));
+	.pipe(gulp.dest('css'));
 });
 
 gulp.task('fonts', () => {
-	var fontDir = 'www/fonts/';
+	var fontDir = 'src/fonts/';
 	return gulp.src([fontDir + '*.ttf',
 			  fontDir + '*.oft', 
 			  fontDir + '*.woff', 
@@ -128,14 +128,14 @@ gulp.task('fonts', () => {
 			  fontDir + '*.svg', 
 			  fontDir + '*.eot'])
 	.pipe(plumber())
-	.pipe(gulp.dest('dist/fonts'));
+	.pipe(gulp.dest('fonts'));
 });
 
 gulp.task('min-image', () => {
-	return gulp.src('www/img/**/*')
+	return gulp.src('src/img/**/*')
 	.pipe(plumber())
 	.pipe(imagemin())
-	.pipe(gulp.dest('dist/img'));
+	.pipe(gulp.dest('img'));
 });
 
 gulp.task('prod', () => {
@@ -147,7 +147,7 @@ gulp.task('all', (callback) => {
 });
 
 gulp.task('watch', () => {
-	gulp.watch('www/**', ['all']);
+	gulp.watch('src/**', ['all']);
 });
 
 gulp.task('default', sequence('all', 'watch'));
