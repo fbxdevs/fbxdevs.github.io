@@ -18,6 +18,8 @@ let app = express();
 let http = require('http');
 let open = require('open');
 
+let livereload = require('gulp-livereload');
+
 app.use(express.static(__dirname));
 
 let getSymverFromPackage = () => {
@@ -93,7 +95,8 @@ gulp.task('min-scripts', ['compile-scripts'], () => {
 	.pipe(plumber())
 	.pipe(uglify())
 	.pipe(rename({suffix:'.min'}))
-    .pipe(gulp.dest('js'));
+    .pipe(gulp.dest('js'))
+    .pipe(livereload());
 });
 
 gulp.task('min-html', () => {
@@ -110,7 +113,8 @@ gulp.task('min-html', () => {
 		removeOptionalTags: true,
 		removeRedundantAttributes: true
 	}))
-	.pipe(gulp.dest('./'));
+	.pipe(gulp.dest('./'))
+	.pipe(livereload());
 });
 
 gulp.task('sass', () => {
@@ -123,7 +127,8 @@ gulp.task('sass', () => {
 	.pipe(concat('app.css'))
 	.pipe(cssmin())
 	.pipe(rename({suffix: '.min'}))
-	.pipe(gulp.dest('css'));
+	.pipe(gulp.dest('css'))
+	.pipe(livereload());
 });
 
 gulp.task('fonts', () => {
@@ -135,7 +140,8 @@ gulp.task('fonts', () => {
 			  fontDir + '*.svg', 
 			  fontDir + '*.eot'])
 	.pipe(plumber())
-	.pipe(gulp.dest('fonts'));
+	.pipe(gulp.dest('fonts'))
+	.pipe(livereload());
 });
 
 gulp.task('min-image', () => {
@@ -169,10 +175,6 @@ gulp.task('build-all', (callback) => {
 	sequence('prod', ['min-scripts', 'min-html', 'sass', 'fonts'])(callback);
 });
 
-gulp.task('watch', () => {
-	gulp.watch('src/**', ['build-all']);
-});
-
 gulp.task('watch-scripts', () => {
 	gulp.watch('src/js/**/*.js', ['min-scripts']);
 });
@@ -193,4 +195,11 @@ gulp.task('watch-img', () => {
 	gulp.watch(['src/img/**'], ['min-image']);
 });
 
-gulp.task('default', sequence('build-all', ['watch-scripts', 'watch-html', 'watch-sass', 'watch-fonts', 'watch-img', 'serve']));
+gulp.task('livereload', () => {
+	livereload.listen({
+		start: true,
+		reloadPage: 'index.html',
+	});
+});
+
+gulp.task('default', sequence('build-all', ['watch-scripts', 'watch-html', 'watch-sass', 'watch-fonts', 'watch-img', 'serve', 'livereload']));
