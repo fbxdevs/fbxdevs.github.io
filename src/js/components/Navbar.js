@@ -16,7 +16,6 @@ export default class Navbar extends Component {
 	}
 
 	componentWillMount() {
-		console.log('Navbar: componentWillMount');
 		
 		this.setState({
 			active: window.location.pathname.split('/')[1]
@@ -24,16 +23,14 @@ export default class Navbar extends Component {
 	}
 
 	componentWillUnmount() {
-		console.log('Navbar: componentWillUnmount')
+		
 	}
 
 	componentDidCatch(error, info) {
-		console.log(info);
-		console.log(error);
+		
 	}
 
 	setActive(lc,url) {
-		console.log('Navbar: setActive');
 
 		this.setState({
 			active: lc
@@ -44,8 +41,6 @@ export default class Navbar extends Component {
 	}
 
 	render() {
-		console.log('Navbar: rendering');
-
 		return (
 			<BSNavbar className='fixed-top' inverse collapseOnSelect>
 				<BSNavbar.Header>
