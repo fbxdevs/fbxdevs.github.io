@@ -8,6 +8,9 @@ import Navbar from './components/Navbar';
 import Home from './components/routes/Home';
 import About from './components/routes/About';
 import Contact from './components/routes/Contact';
+import Meetup from './components/routes/Meetup';
+
+const pollId="df2abb36pgc55qbx";
 
 const ROUTES = [
 	{
@@ -16,6 +19,15 @@ const ROUTES = [
 		'component': (props) => {
 			return (
 				<Home {...props} />
+			)
+		}
+	},
+	{
+		'title':'Meetup',
+		'href':'/meetup',
+		'component': (props) => {
+			return (
+				<Meetup pollId={pollId} {...props} />
 			)
 		}
 	},

@@ -2,7 +2,7 @@ import {Component} from 'react';
 import {Grid, Row, Col} from 'react-bootstrap';
 import UniCol from '../UniCol';
 
-import PlaceHolder from '../PlaceHolder';
+import DoodlePage from '../DoodlePage';
 
 class Meetup extends Component {
 	constructor(props) {
@@ -19,7 +19,7 @@ class Meetup extends Component {
 
 	render() {
 		return (
-			<PlaceHolder />
+			<DoodlePage pollId={this.props.pollId} />
 		);
 	}
 }
