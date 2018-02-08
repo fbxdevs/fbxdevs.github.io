@@ -16,3 +16,14 @@ $ICE: #3bc6ed;
 .mediumText {
 	font-size: 1.3em;
 }
+
+#doodle-poll-container {
+	overflow: hidden;
+	width: 100%;
+	height: 700px;
+
+	#doodle-poll {
+		width: 103%;
+		height: 1018px;
+	}
+}
