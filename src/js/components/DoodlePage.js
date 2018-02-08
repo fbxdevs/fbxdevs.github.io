@@ -11,7 +11,7 @@ class DoodlePage extends React.Component {
 	}
 
 	componentDidMount() {
-
+		
 	}
 
 	render() {

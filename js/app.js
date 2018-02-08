@@ -48309,7 +48309,6 @@ var Navbar = function (_Component) {
 	_createClass(Navbar, [{
 		key: 'componentWillMount',
 		value: function componentWillMount() {
-
 			this.setState({
 				active: window.location.pathname.split('/')[1]
 			});
@@ -48323,7 +48322,6 @@ var Navbar = function (_Component) {
 	}, {
 		key: 'setActive',
 		value: function setActive(lc, url) {
-
 			this.setState({
 				active: lc
 			}, function () {
@@ -48820,10 +48818,18 @@ var Meetup = function (_Component) {
 	function Meetup(props) {
 		_classCallCheck(this, Meetup);
 
-		return _possibleConstructorReturn(this, (Meetup.__proto__ || Object.getPrototypeOf(Meetup)).call(this, props));
+		var _this = _possibleConstructorReturn(this, (Meetup.__proto__ || Object.getPrototypeOf(Meetup)).call(this, props));
+
+		_this.onWheel = _this.onWheel.bind(_this);
+		return _this;
 	}
 
 	_createClass(Meetup, [{
+		key: 'onWheel',
+		value: function onWheel(e) {
+			console.log('I\'m sorry Jason, but I couldn\'t fix the scrolling. =(');
+		}
+	}, {
 		key: 'componentWillMount',
 		value: function componentWillMount() {}
 	}, {
@@ -48832,7 +48838,19 @@ var Meetup = function (_Component) {
 	}, {
 		key: 'render',
 		value: function render() {
-			return React.createElement(_DoodlePage2.default, { pollId: this.props.pollId });
+			return React.createElement(
+				_reactBootstrap.Grid,
+				{ onWheel: this.onWheel },
+				React.createElement(
+					_reactBootstrap.Row,
+					null,
+					React.createElement(
+						_UniCol2.default,
+						{ size: 12, className: 'text-center' },
+						React.createElement(_DoodlePage2.default, { pollId: this.props.pollId })
+					)
+				)
+			);
 		}
 	}]);
 

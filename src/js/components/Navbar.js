@@ -16,22 +16,20 @@ export default class Navbar extends Component {
 	}
 
 	componentWillMount() {
-		
 		this.setState({
 			active: window.location.pathname.split('/')[1]
 		});
 	}
 
 	componentWillUnmount() {
-		
+
 	}
 
 	componentDidCatch(error, info) {
-		
+
 	}
 
 	setActive(lc,url) {
-
 		this.setState({
 			active: lc
 		}, () => {

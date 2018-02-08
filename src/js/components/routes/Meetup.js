@@ -7,6 +7,12 @@ import DoodlePage from '../DoodlePage';
 class Meetup extends Component {
 	constructor(props) {
 		super(props);
+
+		this.onWheel = this.onWheel.bind(this);
+	}
+
+	onWheel(e) {
+		console.log(`I'm sorry Jason, but I couldn't fix the scrolling. =(`);
 	}
 
 	componentWillMount() {
@@ -19,7 +25,13 @@ class Meetup extends Component {
 
 	render() {
 		return (
-			<DoodlePage pollId={this.props.pollId} />
+			<Grid onWheel={this.onWheel}>
+				<Row>
+					<UniCol size={12} className="text-center">
+						<DoodlePage pollId={this.props.pollId} />
+					</UniCol>
+				</Row>
+			</Grid>
 		);
 	}
 }
