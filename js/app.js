@@ -48083,10 +48083,6 @@ var _reactDom2 = _interopRequireDefault(_reactDom);
 
 var _reactRouterDom = require('react-router-dom');
 
-var _PlaceHolder = require('./components/PlaceHolder');
-
-var _PlaceHolder2 = _interopRequireDefault(_PlaceHolder);
-
 var _NoMatch = require('./components/NoMatch');
 
 var _NoMatch2 = _interopRequireDefault(_NoMatch);
@@ -48098,6 +48094,14 @@ var _Navbar2 = _interopRequireDefault(_Navbar);
 var _Home = require('./components/routes/Home');
 
 var _Home2 = _interopRequireDefault(_Home);
+
+var _About = require('./components/routes/About');
+
+var _About2 = _interopRequireDefault(_About);
+
+var _Contact = require('./components/routes/Contact');
+
+var _Contact2 = _interopRequireDefault(_Contact);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -48117,13 +48121,13 @@ var ROUTES = [{
 	'title': 'About',
 	'href': '/about',
 	'component': function component(props) {
-		return _react2.default.createElement(_PlaceHolder2.default, props);
+		return _react2.default.createElement(_About2.default, props);
 	}
 }, {
 	'title': 'Contact',
 	'href': '/contact',
 	'component': function component(props) {
-		return _react2.default.createElement(_PlaceHolder2.default, props);
+		return _react2.default.createElement(_Contact2.default, props);
 	}
 }];
 
@@ -48171,7 +48175,7 @@ var App = function (_React$Component) {
 
 _reactDom2.default.render(_react2.default.createElement(App, null), document.getElementById('app'));
 
-},{"./components/Navbar":494,"./components/NoMatch":495,"./components/PlaceHolder":496,"./components/routes/Home":498,"react":486,"react-dom":291,"react-router-dom":446}],494:[function(require,module,exports){
+},{"./components/Navbar":494,"./components/NoMatch":495,"./components/routes/About":498,"./components/routes/Contact":499,"./components/routes/Home":500,"react":486,"react-dom":291,"react-router-dom":446}],494:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -48221,7 +48225,6 @@ var Navbar = function (_Component) {
 	_createClass(Navbar, [{
 		key: 'componentWillMount',
 		value: function componentWillMount() {
-			console.log('Navbar: componentWillMount');
 
 			this.setState({
 				active: window.location.pathname.split('/')[1]
@@ -48229,19 +48232,13 @@ var Navbar = function (_Component) {
 		}
 	}, {
 		key: 'componentWillUnmount',
-		value: function componentWillUnmount() {
-			console.log('Navbar: componentWillUnmount');
-		}
+		value: function componentWillUnmount() {}
 	}, {
 		key: 'componentDidCatch',
-		value: function componentDidCatch(error, info) {
-			console.log(info);
-			console.log(error);
-		}
+		value: function componentDidCatch(error, info) {}
 	}, {
 		key: 'setActive',
 		value: function setActive(lc, url) {
-			console.log('Navbar: setActive');
 
 			this.setState({
 				active: lc
@@ -48253,8 +48250,6 @@ var Navbar = function (_Component) {
 		key: 'render',
 		value: function render() {
 			var _this2 = this;
-
-			console.log('Navbar: rendering');
 
 			return _react2.default.createElement(
 				_reactBootstrap.Navbar,
@@ -48485,6 +48480,172 @@ UniCol.defaultProps = {
 exports.default = UniCol;
 
 },{"react":486,"react-bootstrap":281}],498:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = require('react');
+
+var _reactBootstrap = require('react-bootstrap');
+
+var _UniCol = require('../UniCol');
+
+var _UniCol2 = _interopRequireDefault(_UniCol);
+
+var _PlaceHolder = require('../PlaceHolder');
+
+var _PlaceHolder2 = _interopRequireDefault(_PlaceHolder);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var About = function (_Component) {
+	_inherits(About, _Component);
+
+	function About(props) {
+		_classCallCheck(this, About);
+
+		return _possibleConstructorReturn(this, (About.__proto__ || Object.getPrototypeOf(About)).call(this, props));
+	}
+
+	_createClass(About, [{
+		key: 'componentWillMount',
+		value: function componentWillMount() {}
+	}, {
+		key: 'componentDidMount',
+		value: function componentDidMount() {}
+	}, {
+		key: 'render',
+		value: function render() {
+			return React.createElement(_PlaceHolder2.default, null);
+		}
+	}]);
+
+	return About;
+}(_react.Component);
+
+exports.default = About;
+
+},{"../PlaceHolder":496,"../UniCol":497,"react":486,"react-bootstrap":281}],499:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = require('react');
+
+var _reactBootstrap = require('react-bootstrap');
+
+var _UniCol = require('../UniCol');
+
+var _UniCol2 = _interopRequireDefault(_UniCol);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Contact = function (_Component) {
+	_inherits(Contact, _Component);
+
+	function Contact(props) {
+		_classCallCheck(this, Contact);
+
+		return _possibleConstructorReturn(this, (Contact.__proto__ || Object.getPrototypeOf(Contact)).call(this, props));
+	}
+
+	_createClass(Contact, [{
+		key: 'componentWillMount',
+		value: function componentWillMount() {}
+	}, {
+		key: 'componentDidMount',
+		value: function componentDidMount() {}
+	}, {
+		key: 'render',
+		value: function render() {
+			return React.createElement(
+				_reactBootstrap.Grid,
+				null,
+				React.createElement(
+					_reactBootstrap.Row,
+					null,
+					React.createElement(
+						_UniCol2.default,
+						{ size: 12, className: 'text-center' },
+						React.createElement(
+							'div',
+							{ className: 'text-center' },
+							React.createElement(
+								'span',
+								{ className: 'mediumText' },
+								'The ',
+								React.createElement(
+									'b',
+									null,
+									'BEST'
+								),
+								' way to contact us is by joining our',
+								React.createElement(
+									'span',
+									{ className: 'bigText' },
+									React.createElement(
+										'a',
+										{ href: this.props.slackInviteUrl, target: '_blank' },
+										' Slack'
+									)
+								),
+								'.'
+							)
+						)
+					),
+					React.createElement(
+						_UniCol2.default,
+						{ size: 12, className: 'text-center' },
+						React.createElement(
+							'div',
+							{ className: 'text-center' },
+							React.createElement(
+								'span',
+								{ className: 'mediumText' },
+								'If you must, you can also reach us by email at ',
+								React.createElement(
+									'a',
+									{ href: 'mailto:fbxdevmtg@gmail.com' },
+									'fbxdevmtg@gmail.com'
+								)
+							)
+						)
+					)
+				)
+			);
+		}
+	}]);
+
+	return Contact;
+}(_react.Component);
+
+Contact.defaultProps = {
+	slackInviteUrl: 'https://fbxdevs-slack-signup.herokuapp.com'
+};
+
+exports.default = Contact;
+
+},{"../UniCol":497,"react":486,"react-bootstrap":281}],500:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {

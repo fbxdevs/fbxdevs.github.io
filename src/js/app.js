@@ -2,11 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { HashRouter, Route, Redirect, Switch } from 'react-router-dom';
 
-import PlaceHolder from './components/PlaceHolder';
 import NoMatch from './components/NoMatch';
 import Navbar from './components/Navbar';
 
 import Home from './components/routes/Home';
+import About from './components/routes/About';
+import Contact from './components/routes/Contact';
 
 const ROUTES = [
 	{
@@ -23,7 +24,7 @@ const ROUTES = [
 		'href':'/about',
 		'component': (props) => {
 			return (
-				<PlaceHolder {...props} />
+				<About {...props} />
 			)
 		}
 	},
@@ -32,7 +33,7 @@ const ROUTES = [
 		'href':'/contact',
 		'component': (props) => {
 			return (
-				<PlaceHolder {...props} />
+				<Contact {...props} />
 			)
 		}
 	}
