@@ -1,4 +1,4 @@
-import React from 'react';
+import {Component} from 'react';
 import ReactDOM from 'react-dom';
 import { HashRouter, Route, Redirect, Switch } from 'react-router-dom';
 
@@ -51,7 +51,7 @@ const ROUTES = [
 	}
 ];
 
-class App extends React.Component {
+class App extends Component {
 	render() {
 		return (
 			<HashRouter>

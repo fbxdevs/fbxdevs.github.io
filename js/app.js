@@ -48077,8 +48077,6 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 var _react = require('react');
 
-var _react2 = _interopRequireDefault(_react);
-
 var _reactDom = require('react-dom');
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
@@ -48123,30 +48121,30 @@ var ROUTES = [{
 	'title': 'Home',
 	'href': '/home',
 	'component': function component(props) {
-		return _react2.default.createElement(_Home2.default, props);
+		return React.createElement(_Home2.default, props);
 	}
 }, {
 	'title': 'Meetup',
 	'href': '/meetup',
 	'component': function component(props) {
-		return _react2.default.createElement(_Meetup2.default, _extends({ pollId: pollId }, props));
+		return React.createElement(_Meetup2.default, _extends({ pollId: pollId }, props));
 	}
 }, {
 	'title': 'About',
 	'href': '/about',
 	'component': function component(props) {
-		return _react2.default.createElement(_About2.default, props);
+		return React.createElement(_About2.default, props);
 	}
 }, {
 	'title': 'Contact',
 	'href': '/contact',
 	'component': function component(props) {
-		return _react2.default.createElement(_Contact2.default, props);
+		return React.createElement(_Contact2.default, props);
 	}
 }];
 
-var App = function (_React$Component) {
-	_inherits(App, _React$Component);
+var App = function (_Component) {
+	_inherits(App, _Component);
 
 	function App() {
 		_classCallCheck(this, App);
@@ -48157,26 +48155,26 @@ var App = function (_React$Component) {
 	_createClass(App, [{
 		key: 'render',
 		value: function render() {
-			return _react2.default.createElement(
+			return React.createElement(
 				_reactRouterDom.HashRouter,
 				null,
-				_react2.default.createElement(
+				React.createElement(
 					'div',
 					null,
-					_react2.default.createElement(_Navbar2.default, { links: ROUTES }),
-					_react2.default.createElement(
+					React.createElement(_Navbar2.default, { links: ROUTES }),
+					React.createElement(
 						'div',
 						{ className: 'container' },
-						_react2.default.createElement(
+						React.createElement(
 							_reactRouterDom.Switch,
 							null,
 							ROUTES.map(function (link, i) {
-								return _react2.default.createElement(_reactRouterDom.Route, {
+								return React.createElement(_reactRouterDom.Route, {
 									path: link.href,
 									component: link.component });
 							}),
-							_react2.default.createElement(_reactRouterDom.Redirect, { exact: true, from: '/', to: '/home' }),
-							_react2.default.createElement(_reactRouterDom.Route, { component: _NoMatch2.default })
+							React.createElement(_reactRouterDom.Redirect, { exact: true, from: '/', to: '/home' }),
+							React.createElement(_reactRouterDom.Route, { component: _NoMatch2.default })
 						)
 					)
 				)
@@ -48185,9 +48183,9 @@ var App = function (_React$Component) {
 	}]);
 
 	return App;
-}(_react2.default.Component);
+}(_react.Component);
 
-_reactDom2.default.render(_react2.default.createElement(App, null), document.getElementById('app'));
+_reactDom2.default.render(React.createElement(App, null), document.getElementById('app'));
 
 },{"./components/Navbar":495,"./components/NoMatch":496,"./components/routes/About":499,"./components/routes/Contact":500,"./components/routes/Home":501,"./components/routes/Meetup":502,"react":486,"react-dom":291,"react-router-dom":446}],494:[function(require,module,exports){
 'use strict';
@@ -48200,11 +48198,7 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 var _react = require('react');
 
-var _react2 = _interopRequireDefault(_react);
-
 var _reactBootstrap = require('react-bootstrap');
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -48212,8 +48206,8 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var DoodlePage = function (_React$Component) {
-	_inherits(DoodlePage, _React$Component);
+var DoodlePage = function (_Component) {
+	_inherits(DoodlePage, _Component);
 
 	function DoodlePage(props) {
 		_classCallCheck(this, DoodlePage);
@@ -48230,32 +48224,32 @@ var DoodlePage = function (_React$Component) {
 	}, {
 		key: 'render',
 		value: function render() {
-			return _react2.default.createElement(
+			return React.createElement(
 				_reactBootstrap.Grid,
 				null,
-				_react2.default.createElement(
+				React.createElement(
 					_reactBootstrap.Row,
 					{ className: 'show-grid' },
-					_react2.default.createElement(_reactBootstrap.Col, { xs: 2, sm: 2, md: 2, lg: 2 }),
-					_react2.default.createElement(
+					React.createElement(_reactBootstrap.Col, { xs: 2, sm: 2, md: 2, lg: 2 }),
+					React.createElement(
 						_reactBootstrap.Col,
 						{ xs: 8, sm: 8, md: 8, lg: 8 },
-						_react2.default.createElement(
+						React.createElement(
 							'div',
 							{ id: 'doodle-poll-container' },
-							_react2.default.createElement('iframe', { id: 'doodle-poll',
+							React.createElement('iframe', { id: 'doodle-poll',
 								className: 'text-center',
 								src: 'https://doodle.com/poll/' + this.props.pollId })
 						)
 					),
-					_react2.default.createElement(_reactBootstrap.Col, { xs: 2, sm: 2, md: 2, lg: 2 })
+					React.createElement(_reactBootstrap.Col, { xs: 2, sm: 2, md: 2, lg: 2 })
 				)
 			);
 		}
 	}]);
 
 	return DoodlePage;
-}(_react2.default.Component);
+}(_react.Component);
 
 exports.default = DoodlePage;
 
@@ -48269,8 +48263,6 @@ Object.defineProperty(exports, "__esModule", {
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _react = require('react');
-
-var _react2 = _interopRequireDefault(_react);
 
 var _reactRouterDom = require('react-router-dom');
 
@@ -48333,38 +48325,38 @@ var Navbar = function (_Component) {
 		value: function render() {
 			var _this2 = this;
 
-			return _react2.default.createElement(
+			return React.createElement(
 				_reactBootstrap.Navbar,
 				{ className: 'fixed-top', inverse: true, collapseOnSelect: true },
-				_react2.default.createElement(
+				React.createElement(
 					_reactBootstrap.Navbar.Header,
 					null,
-					_react2.default.createElement(
+					React.createElement(
 						_reactBootstrap.Navbar.Brand,
 						null,
-						_react2.default.createElement(
+						React.createElement(
 							'a',
 							{ className: 'nav-link',
 								onClick: function onClick() {
 									_this2.setActive('home', '/#/home');
 								},
 								href: '/#/home' },
-							_react2.default.createElement(_reactFontawesome2.default, { icon: _fontawesomeFreeSolid.faFileCode }),
+							React.createElement(_reactFontawesome2.default, { icon: _fontawesomeFreeSolid.faFileCode }),
 							'\xA0 FbxDevs'
 						)
 					),
-					_react2.default.createElement(_reactBootstrap.Navbar.Toggle, null)
+					React.createElement(_reactBootstrap.Navbar.Toggle, null)
 				),
-				_react2.default.createElement(
+				React.createElement(
 					_reactBootstrap.Navbar.Collapse,
 					null,
-					_react2.default.createElement(
+					React.createElement(
 						_reactBootstrap.Nav,
 						null,
 						this.props.links.map(function (link, i) {
 							if (link.display == undefined || link.display) {
 								var lc = link.title.toLowerCase().split(' ').join('-');
-								return _react2.default.createElement(
+								return React.createElement(
 									_reactBootstrap.NavItem,
 									{
 										key: lc,
@@ -48374,7 +48366,7 @@ var Navbar = function (_Component) {
 											_this2.setActive(lc, link.href);
 										},
 										href: '#' + link.href },
-									_react2.default.createElement(
+									React.createElement(
 										_reactRouterDom.Link,
 										{
 											to: link.href,
@@ -48398,28 +48390,21 @@ var Navbar = function (_Component) {
 exports.default = Navbar;
 
 },{"@fortawesome/fontawesome-free-solid":1,"@fortawesome/react-fontawesome":3,"react":486,"react-bootstrap":281,"react-router-dom":446}],496:[function(require,module,exports){
-'use strict';
+"use strict";
 
 Object.defineProperty(exports, "__esModule", {
 	value: true
 });
 exports.default = NoMatch;
-
-var _react = require('react');
-
-var _react2 = _interopRequireDefault(_react);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
 function NoMatch(props) {
-	return _react2.default.createElement(
-		'div',
+	return React.createElement(
+		"div",
 		null,
-		'404'
+		"404"
 	);
 }
 
-},{"react":486}],497:[function(require,module,exports){
+},{}],497:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
