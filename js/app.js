@@ -48203,7 +48203,11 @@ var Navbar = function (_Component) {
 						null,
 						_react2.default.createElement(
 							'a',
-							{ className: 'nav-link', href: '/#/home' },
+							{ className: 'nav-link',
+								onClick: function onClick() {
+									_this2.setActive('home', '/#/home');
+								},
+								href: '/#/home' },
 							'FbxDevs'
 						)
 					),
@@ -48222,7 +48226,7 @@ var Navbar = function (_Component) {
 									_reactBootstrap.NavItem,
 									{
 										key: lc,
-										className: _this2.props.active === lc ? 'active' : '',
+										className: _this2.state.active == lc ? 'active' : '',
 										id: lc,
 										onClick: function onClick() {
 											_this2.setActive(lc, link.href);

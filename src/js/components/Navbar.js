@@ -50,7 +50,9 @@ export default class Navbar extends Component {
 			<BSNavbar className='fixed-top' inverse collapseOnSelect>
 				<BSNavbar.Header>
 					<BSNavbar.Brand>
-						<a className='nav-link' href="/#/home">
+						<a  className='nav-link' 
+							onClick={() => {this.setActive('home','/#/home')}} 
+							href="/#/home" >
 							FbxDevs
 						</a>
 					</BSNavbar.Brand>
@@ -65,7 +67,7 @@ export default class Navbar extends Component {
 						return (
 							<NavItem 
 								key={lc}
-								className={this.props.active === lc ? 'active' : ''}
+								className={this.state.active == lc ? 'active' : ''}
 								id={lc}
 								onClick={() => {this.setActive(lc,link.href)}} 
 								href={`#${link.href}`} >
