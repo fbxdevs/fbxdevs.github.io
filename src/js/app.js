@@ -6,13 +6,15 @@ import PlaceHolder from './components/PlaceHolder';
 import NoMatch from './components/NoMatch';
 import Navbar from './components/Navbar';
 
+import Home from './components/routes/Home';
+
 const ROUTES = [
 	{
 		'title':'Home',
 		'href':'/home',
 		'component': (props) => {
 			return (
-				<PlaceHolder {...props} />
+				<Home {...props} />
 			)
 		}
 	},
