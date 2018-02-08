@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Navbar as BSNavbar, Nav, NavItem } from 'react-bootstrap';
 import FontAwesomeIcon from '@fortawesome/react-fontawesome';
-import { faUtensils } from '@fortawesome/fontawesome-free-solid';
+import { faFileCode } from '@fortawesome/fontawesome-free-solid';
 
 export default class Navbar extends Component {
 	constructor(props) {
@@ -53,6 +53,7 @@ export default class Navbar extends Component {
 						<a  className='nav-link' 
 							onClick={() => {this.setActive('home','/#/home')}} 
 							href="/#/home" >
+							<FontAwesomeIcon icon={faFileCode} />&nbsp;
 							FbxDevs
 						</a>
 					</BSNavbar.Brand>
