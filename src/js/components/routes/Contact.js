@@ -32,7 +32,7 @@ class Contact extends Component {
 					<UniCol size={12} className="text-center">
 						<div className="text-center">
 							<span className="mediumText">
-								If you must, you can also reach us by email at <a href="mailto:fbxdevmtg@gmail.com">fbxdevmtg@gmail.com</a>
+								If you must, you can also reach us by email at <a href="mailto:contact@fbxdevs.com">fbxdevmtg@gmail.com</a>
 							</span>
 						</div>
 					</UniCol>
