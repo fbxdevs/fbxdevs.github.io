@@ -1,7 +1,7 @@
-import React from 'react';
+import {Component} from 'react';
 import {Grid, Row, Col} from 'react-bootstrap';
 
-class DoodlePage extends React.Component {
+class DoodlePage extends Component {
 	constructor(props) {
 		super(props);
 	}

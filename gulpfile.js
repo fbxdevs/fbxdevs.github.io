@@ -82,7 +82,7 @@ gulp.task('bump-patch', () => {
 gulp.task('compile-scripts', () => {
 	return browserify('src/js/app.js')
 	.transform('babelify', {
-		presets: ['react', 'env'],
+		presets: ['react', 'env', 'tree-shaking'],
 	})
 	.bundle()
 	.pipe(source('app.js'))
