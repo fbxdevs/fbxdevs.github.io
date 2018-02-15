@@ -1,8 +1,11 @@
 import { Component } from 'react';
 import { Link } from 'react-router-dom';
+import fontawesome from '@fortawesome/fontawesome'
 import { Navbar as BSNavbar, Nav, NavItem } from 'react-bootstrap';
 import FontAwesomeIcon from '@fortawesome/react-fontawesome';
+import brands from '@fortawesome/fontawesome-free-brands'
 import { faFileCode } from '@fortawesome/fontawesome-free-solid';
+fontawesome.library.add(brands, faFileCode)
 
 export default class Navbar extends Component {
 	constructor(props) {
@@ -76,6 +79,13 @@ export default class Navbar extends Component {
 					}
 					return null;
 				})}
+				</Nav>
+				<Nav pullRight>
+					<NavItem>
+						<a className='nav-link' href='https://fbxdevs-slack-signup.herokuapp.com'>
+							<FontAwesomeIcon icon={['fab','slack']} /> Slack
+						</a>
+					</NavItem>
 				</Nav>
 				</BSNavbar.Collapse>
 
