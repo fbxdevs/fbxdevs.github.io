@@ -1,5 +1,6 @@
 let gulp = require('gulp');
 let plumber = require('gulp-plumber');
+let eslint = require('gulp-eslint');
 let browserify = require('browserify');
 let sass = require('gulp-sass');
 let autoprefixer = require('gulp-autoprefixer');
@@ -79,7 +80,13 @@ gulp.task('bump-patch', () => {
 	bumpVersion(2);
 });
 
-gulp.task('compile-scripts', () => {
+gulp.task('lint-scripts', () => {
+	return gulp.src(['src/js/**/*.js'])
+	.pipe(eslint())
+	.pipe(eslint.format());
+});
+
+gulp.task('compile-scripts', ['lint-scripts'], () => {
 	return browserify('src/js/app.js')
 	.transform('babelify', {
 		presets: ['react', 'env', 'tree-shaking'],
