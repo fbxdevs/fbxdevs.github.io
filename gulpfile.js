@@ -82,7 +82,7 @@ gulp.task('bump-patch', () => {
 
 gulp.task('lint-scripts', () => {
 	return gulp.src(['src/js/**/*.js'])
-	.pipe(eslint())
+	.pipe(eslint('./.eslintrc'))
 	.pipe(eslint.format());
 });
 
@@ -92,6 +92,10 @@ gulp.task('compile-scripts', ['lint-scripts'], () => {
 		presets: ['react', 'env', 'tree-shaking'],
 	})
 	.bundle()
+	.on('error', function(err) {
+		console.error(err);
+		this.emit('end');
+	})
 	.pipe(source('app.js'))
 	.pipe(plumber())
     .pipe(gulp.dest('js'));
