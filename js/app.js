@@ -49503,13 +49503,15 @@ var Navbar = function (_Component) {
 										onClick: function onClick() {
 											_this2.setActive(lc, link.href);
 										},
-										href: '#' + link.href },
+										href: '#' + link.href
+									},
 									React.createElement(
 										_reactRouterDom.Link,
 										{
 											to: link.href,
 											style: { textDecoration: 'none' },
-											className: 'nav-link' },
+											className: 'nav-link'
+										},
 										link.title
 									)
 								);
@@ -49522,11 +49524,11 @@ var Navbar = function (_Component) {
 						{ pullRight: true },
 						React.createElement(
 							_reactBootstrap.NavItem,
-							null,
+							{ className: 'nav-link', href: 'https://fbxdevs-slack-signup.herokuapp.com', target: '_blank' },
+							React.createElement(_reactFontawesome2.default, { icon: ['fab', 'slack'] }),
 							React.createElement(
-								'a',
-								{ className: 'nav-link', href: 'https://fbxdevs-slack-signup.herokuapp.com' },
-								React.createElement(_reactFontawesome2.default, { icon: ['fab', 'slack'] }),
+								'span',
+								null,
 								' Slack'
 							)
 						)

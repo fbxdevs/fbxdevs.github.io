@@ -4,8 +4,11 @@ $ICE: #3bc6ed;
 	border-radius:0px;
 
 	.nav-link {
-		text-decoration:none;
 		color: $ICE;
+
+		svg, span {
+			color: $ICE;
+		}
 	}
 }
 

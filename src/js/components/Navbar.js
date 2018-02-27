@@ -68,11 +68,13 @@ export default class Navbar extends Component {
 										className={this.state.active == lc ? 'active' : ''}
 										id={lc}
 										onClick={() => {this.setActive(lc, link.href);}}
-										href={`#${link.href}`} >
+										href={`#${link.href}`}
+									>
 										<Link
 											to={link.href}
 											style={{textDecoration: 'none'}}
-											className='nav-link' >
+											className='nav-link'
+										>
 											{link.title}
 										</Link>
 									</NavItem>
@@ -82,10 +84,9 @@ export default class Navbar extends Component {
 						})}
 					</Nav>
 					<Nav pullRight>
-						<NavItem>
-							<a className='nav-link' href='https://fbxdevs-slack-signup.herokuapp.com'>
-								<FontAwesomeIcon icon={['fab', 'slack']} /> Slack
-							</a>
+						<NavItem className='nav-link' href='https://fbxdevs-slack-signup.herokuapp.com' target='_blank'>
+							<FontAwesomeIcon icon={['fab', 'slack']} />
+							<span> Slack</span>
 						</NavItem>
 					</Nav>
 				</BSNavbar.Collapse>
