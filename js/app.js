@@ -49432,14 +49432,14 @@ var Navbar = function (_Component) {
 		};
 
 		_this.setActive = _this.setActive.bind(_this);
-		_this.navbarToggleClick = _this.navbarToggleClick.bind(_this);
+		_this.navbarToggle = _this.navbarToggle.bind(_this);
 		return _this;
 	}
 
 	_createClass(Navbar, [{
-		key: 'navbarToggleClick',
-		value: function navbarToggleClick(e) {
-			this.setState({ navbarToggleCollapsed: !this.state.navbarToggleCollapsed });
+		key: 'navbarToggle',
+		value: function navbarToggle(expanded) {
+			this.setState({ navbarToggleCollapsed: !expanded });
 		}
 	}, {
 		key: 'componentWillMount',
@@ -49470,7 +49470,7 @@ var Navbar = function (_Component) {
 
 			return React.createElement(
 				_reactBootstrap.Navbar,
-				{ className: 'fixed-top', inverse: true, collapseOnSelect: true },
+				{ className: 'fixed-top', inverse: true, collapseOnSelect: true, onToggle: this.navbarToggle },
 				React.createElement(
 					_reactBootstrap.Navbar.Header,
 					null,
@@ -49493,8 +49493,7 @@ var Navbar = function (_Component) {
 					React.createElement(
 						_reactBootstrap.Navbar.Toggle,
 						{
-							className: 'spinner-master ' + (this.state.navbarToggleCollapsed ? '' : 'animate'),
-							onClick: this.navbarToggleClick
+							className: 'spinner-master ' + (this.state.navbarToggleCollapsed ? '' : 'animate')
 						},
 						React.createElement(
 							'span',

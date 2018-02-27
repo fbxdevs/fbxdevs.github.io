@@ -17,11 +17,11 @@ export default class Navbar extends Component {
 		};
 
 		this.setActive = this.setActive.bind(this);
-		this.navbarToggleClick = this.navbarToggleClick.bind(this);
+		this.navbarToggle = this.navbarToggle.bind(this);
 	}
 
-	navbarToggleClick(e) {
-		this.setState({navbarToggleCollapsed: !this.state.navbarToggleCollapsed});
+	navbarToggle(expanded) {
+		this.setState({navbarToggleCollapsed: !expanded});
 	}
 
 	componentWillMount() {
@@ -48,7 +48,7 @@ export default class Navbar extends Component {
 
 	render() {
 		return (
-			<BSNavbar className='fixed-top' inverse collapseOnSelect>
+			<BSNavbar className='fixed-top' inverse collapseOnSelect onToggle={this.navbarToggle}>
 				<BSNavbar.Header>
 					<BSNavbar.Brand>
 						<a
@@ -62,7 +62,6 @@ export default class Navbar extends Component {
 					</BSNavbar.Brand>
 					<BSNavbar.Toggle
 						className={`spinner-master ${this.state.navbarToggleCollapsed ? '' : 'animate'}`}
-						onClick={this.navbarToggleClick}
 					>
 						<span className='sr-only'>Toggle Navigation</span>
 						<span className={`icon-bar spinner diagonal part-1 ${this.state.navbarToggleCollapsed ? '' : 'animate'}`}></span>
