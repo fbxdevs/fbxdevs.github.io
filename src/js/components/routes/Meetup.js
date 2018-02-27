@@ -11,6 +11,7 @@ class Meetup extends Component {
 	}
 
 	onWheel(e) {
+		// eslint-disable-next-line no-console
 		console.log(`I'm sorry Jason, but I couldn't fix the scrolling. =(`);
 	}
 
