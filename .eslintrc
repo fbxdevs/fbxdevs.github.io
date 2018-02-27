@@ -28,6 +28,7 @@
 		'prefer-const': 2,
 		'no-tabs': 0,
 		'no-console': 1,
+		'space-infix-ops': [2],
 		'block-scoped-var': 2,
 		'guard-for-in': 1,
 		'no-trailing-spaces': ['error', {skipBlankLines: true}],
