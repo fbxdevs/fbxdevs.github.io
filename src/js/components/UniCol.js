@@ -15,7 +15,14 @@ class UniCol extends Component {
 	}
 
 	render() {
-		return <Col xs={this.props.size} sm={this.props.size} md={this.props.size} lg={this.props.size}>{this.props.children}</Col>;
+		return <Col
+			xs={this.props.size}
+			sm={this.props.size}
+			md={this.props.size}
+			lg={this.props.size}
+		>
+			{this.props.children}
+		</Col>;
 	}
 }
 

@@ -1,11 +1,11 @@
-import { Component } from 'react';
-import { Link } from 'react-router-dom';
-import fontawesome from '@fortawesome/fontawesome'
-import { Navbar as BSNavbar, Nav, NavItem } from 'react-bootstrap';
+import {Component} from 'react';
+import {Link} from 'react-router-dom';
+import fontawesome from '@fortawesome/fontawesome';
+import {Navbar as BSNavbar, Nav, NavItem} from 'react-bootstrap';
 import FontAwesomeIcon from '@fortawesome/react-fontawesome';
-import brands from '@fortawesome/fontawesome-free-brands'
-import { faFileCode } from '@fortawesome/fontawesome-free-solid';
-fontawesome.library.add(brands, faFileCode)
+import brands from '@fortawesome/fontawesome-free-brands';
+import {faFileCode} from '@fortawesome/fontawesome-free-solid';
+fontawesome.library.add(brands, faFileCode);
 
 export default class Navbar extends Component {
 	constructor(props) {
@@ -13,14 +13,14 @@ export default class Navbar extends Component {
 
 		this.state = {
 			active: '',
-		}
+		};
 
 		this.setActive = this.setActive.bind(this);
 	}
 
 	componentWillMount() {
 		this.setState({
-			active: window.location.pathname.split('/')[1]
+			active: window.location.pathname.split('/')[1],
 		});
 	}
 
@@ -32,13 +32,12 @@ export default class Navbar extends Component {
 
 	}
 
-	setActive(lc,url) {
+	setActive(lc, url) {
 		this.setState({
-			active: lc
+			active: lc,
 		}, () => {
 			window.location.hash = `#${url}`;
 		});
-
 	}
 
 	render() {
@@ -46,9 +45,11 @@ export default class Navbar extends Component {
 			<BSNavbar className='fixed-top' inverse collapseOnSelect>
 				<BSNavbar.Header>
 					<BSNavbar.Brand>
-						<a  className='nav-link' 
-							onClick={() => {this.setActive('home','/#/home')}} 
-							href="/#/home" >
+						<a
+							className='nav-link'
+							onClick={() => {this.setActive('home', '/#/home');}}
+							href="/#/home"
+						>
 							<FontAwesomeIcon icon={faFileCode} />&nbsp;
 							FbxDevs
 						</a>
@@ -57,36 +58,36 @@ export default class Navbar extends Component {
 				</BSNavbar.Header>
 				
 				<BSNavbar.Collapse>
-				<Nav>
-				{this.props.links.map( (link,i) => {
-					if (link.display == undefined || link.display) {
-						let lc = link.title.toLowerCase().split(' ').join('-');
-						return (
-							<NavItem 
-								key={lc}
-								className={this.state.active == lc ? 'active' : ''}
-								id={lc}
-								onClick={() => {this.setActive(lc,link.href)}} 
-								href={`#${link.href}`} >
-								<Link 
-									to={link.href} 
-									style={{textDecoration:'none'}}
-									className='nav-link' >
-									{link.title}
-								</Link>
-							</NavItem>
-						)
-					}
-					return null;
-				})}
-				</Nav>
-				<Nav pullRight>
-					<NavItem>
-						<a className='nav-link' href='https://fbxdevs-slack-signup.herokuapp.com'>
-							<FontAwesomeIcon icon={['fab','slack']} /> Slack
-						</a>
-					</NavItem>
-				</Nav>
+					<Nav>
+						{this.props.links.map( (link, i) => {
+							if(link.display == undefined || link.display) {
+								const lc = link.title.toLowerCase().split(' ').join('-');
+								return (
+									<NavItem
+										key={lc}
+										className={this.state.active == lc ? 'active' : ''}
+										id={lc}
+										onClick={() => {this.setActive(lc, link.href);}}
+										href={`#${link.href}`} >
+										<Link
+											to={link.href}
+											style={{textDecoration: 'none'}}
+											className='nav-link' >
+											{link.title}
+										</Link>
+									</NavItem>
+								);
+							}
+							return null;
+						})}
+					</Nav>
+					<Nav pullRight>
+						<NavItem>
+							<a className='nav-link' href='https://fbxdevs-slack-signup.herokuapp.com'>
+								<FontAwesomeIcon icon={['fab', 'slack']} /> Slack
+							</a>
+						</NavItem>
+					</Nav>
 				</BSNavbar.Collapse>
 
 			</BSNavbar>

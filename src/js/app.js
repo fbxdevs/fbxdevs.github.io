@@ -1,6 +1,6 @@
 import {Component} from 'react';
 import ReactDOM from 'react-dom';
-import { HashRouter, Route, Redirect, Switch } from 'react-router-dom';
+import {HashRouter, Route, Redirect, Switch} from 'react-router-dom';
 
 import NoMatch from './components/NoMatch';
 import Navbar from './components/Navbar';
@@ -10,45 +10,45 @@ import About from './components/routes/About';
 import Contact from './components/routes/Contact';
 import Meetup from './components/routes/Meetup';
 
-const pollId="bgumhr2cchzuw76y";
+const pollId = 'bgumhr2cchzuw76y';
 
 const ROUTES = [
 	{
-		'title':'Home',
-		'href':'/home',
+		'title': 'Home',
+		'href': '/home',
 		'component': (props) => {
 			return (
 				<Home {...props} />
-			)
-		}
+			);
+		},
 	},
 	{
-		'title':'Meetup',
-		'href':'/meetup',
+		'title': 'Meetup',
+		'href': '/meetup',
 		'component': (props) => {
 			return (
 				<Meetup pollId={pollId} {...props} />
-			)
-		}
+			);
+		},
 	},
 	{
-		'title':'About',
-		'href':'/about',
+		'title': 'About',
+		'href': '/about',
 		'component': (props) => {
 			return (
 				<About {...props} />
-			)
-		}
+			);
+		},
 	},
 	{
-		'title':'Contact',
-		'href':'/contact',
+		'title': 'Contact',
+		'href': '/contact',
 		'component': (props) => {
 			return (
 				<Contact {...props} />
-			)
-		}
-	}
+			);
+		},
+	},
 ];
 
 class App extends Component {
@@ -59,18 +59,18 @@ class App extends Component {
 					<Navbar links={ROUTES} />
 
 					<div className='container'>
-					<Switch>
-						{ROUTES.map( (link,i) => {
-							return (
-								<Route 
-									path={link.href} 
-									component={link.component} />
-							);
-						})}
-						
-						<Redirect exact from="/" to="/home" />
-						<Route component={NoMatch} />
-					</Switch>
+						<Switch>
+							{ROUTES.map( (link, i) => {
+								return (
+									<Route
+										path={link.href}
+										component={link.component} />
+								);
+							})}
+							
+							<Redirect exact from="/" to="/home" />
+							<Route component={NoMatch} />
+						</Switch>
 					</div>
 				</div>
 			</HashRouter>
@@ -78,9 +78,7 @@ class App extends Component {
 	}
 }
 
-
-
 ReactDOM.render(
-	<App />, 
-	document.getElementById('app') 
+	<App />,
+	document.getElementById('app')
 );

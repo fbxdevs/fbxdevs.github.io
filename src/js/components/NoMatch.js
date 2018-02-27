@@ -3,5 +3,5 @@ export default function NoMatch(props) {
 		<div>
 			404
 		</div>
-	)
-}
+	);
+};

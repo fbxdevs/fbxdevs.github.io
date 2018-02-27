@@ -1,5 +1,5 @@
 import {Component} from 'react';
-import {Grid, Row, Col} from 'react-bootstrap';
+import {Grid, Row} from 'react-bootstrap';
 import UniCol from './UniCol';
 
 class PlaceHolder extends Component {
@@ -14,7 +14,11 @@ class PlaceHolder extends Component {
 						<h4 className="text-center">This page is still a work in progress...</h4>
 					</UniCol>
 					<UniCol size={12}>
-						<h4 className="text-center"><a href={this.props.slackInviteUrl} target="_blank">Maybe join our slack in the meantime?</a></h4>
+						<h4 className="text-center">
+							<a href={this.props.slackInviteUrl} target="_blank">
+								Maybe join our slack in the meantime?
+							</a>
+						</h4>
 					</UniCol>
 				</Row>
 			</Grid>

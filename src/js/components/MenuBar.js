@@ -1,7 +1,5 @@
 import {Component} from 'react';
 import AppBar from 'react-toolbox/lib/app_bar/AppBar';
-import Navigation from 'react-toolbox/lib/navigation/Navigation';
-import Link from 'react-toolbox/lib/link/Link';
 
 class MenuBar extends Component {
 	render() {
@@ -10,7 +8,7 @@ class MenuBar extends Component {
 }
 
 MenuBar.defaultProps = {
-	title: 'Defualt Title'
+	title: 'Defualt Title',
 };
 
 export default MenuBar;

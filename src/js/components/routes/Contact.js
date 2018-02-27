@@ -1,5 +1,5 @@
 import {Component} from 'react';
-import {Grid, Row, Col} from 'react-bootstrap';
+import {Grid, Row} from 'react-bootstrap';
 import UniCol from '../UniCol';
 
 class Contact extends Component {
@@ -32,7 +32,9 @@ class Contact extends Component {
 					<UniCol size={12} className="text-center">
 						<div className="text-center">
 							<span className="mediumText">
-								If you must, you can also reach us by email at <a href="mailto:contact@fbxdevs.com">fbxdevmtg@gmail.com</a>
+								If you must, you can also reach us by email at <a href="mailto:contact@fbxdevs.com">
+									fbxdevmtg@gmail.com
+								</a>
 							</span>
 						</div>
 					</UniCol>

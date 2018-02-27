@@ -49241,7 +49241,7 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var pollId = "bgumhr2cchzuw76y";
+var pollId = 'bgumhr2cchzuw76y';
 
 var ROUTES = [{
 	'title': 'Home',
@@ -49472,11 +49472,13 @@ var Navbar = function (_Component) {
 						null,
 						React.createElement(
 							'a',
-							{ className: 'nav-link',
+							{
+								className: 'nav-link',
 								onClick: function onClick() {
 									_this2.setActive('home', '/#/home');
 								},
-								href: '/#/home' },
+								href: '/#/home'
+							},
 							React.createElement(_reactFontawesome2.default, { icon: _fontawesomeFreeSolid.faFileCode }),
 							'\xA0 FbxDevs'
 						)
@@ -49552,7 +49554,7 @@ function NoMatch(props) {
 		null,
 		"404"
 	);
-}
+};
 
 },{}],498:[function(require,module,exports){
 'use strict';
@@ -49681,7 +49683,12 @@ var UniCol = function (_Component) {
 		value: function render() {
 			return React.createElement(
 				_reactBootstrap.Col,
-				{ xs: this.props.size, sm: this.props.size, md: this.props.size, lg: this.props.size },
+				{
+					xs: this.props.size,
+					sm: this.props.size,
+					md: this.props.size,
+					lg: this.props.size
+				},
 				this.props.children
 			);
 		}
@@ -49706,12 +49713,6 @@ Object.defineProperty(exports, "__esModule", {
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _react = require('react');
-
-var _reactBootstrap = require('react-bootstrap');
-
-var _UniCol = require('../UniCol');
-
-var _UniCol2 = _interopRequireDefault(_UniCol);
 
 var _PlaceHolder = require('../PlaceHolder');
 
@@ -49752,7 +49753,7 @@ var About = function (_Component) {
 
 exports.default = About;
 
-},{"../PlaceHolder":498,"../UniCol":499,"react":487,"react-bootstrap":282}],501:[function(require,module,exports){
+},{"../PlaceHolder":498,"react":487}],501:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -49873,12 +49874,6 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 var _react = require('react');
 
-var _reactBootstrap = require('react-bootstrap');
-
-var _UniCol = require('../UniCol');
-
-var _UniCol2 = _interopRequireDefault(_UniCol);
-
 var _PlaceHolder = require('../PlaceHolder');
 
 var _PlaceHolder2 = _interopRequireDefault(_PlaceHolder);
@@ -49918,7 +49913,7 @@ var Home = function (_Component) {
 
 exports.default = Home;
 
-},{"../PlaceHolder":498,"../UniCol":499,"react":487,"react-bootstrap":282}],503:[function(require,module,exports){
+},{"../PlaceHolder":498,"react":487}],503:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
