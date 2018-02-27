@@ -13,9 +13,15 @@ export default class Navbar extends Component {
 
 		this.state = {
 			active: '',
+			navbarToggleCollapsed: true,
 		};
 
 		this.setActive = this.setActive.bind(this);
+		this.navbarToggleClick = this.navbarToggleClick.bind(this);
+	}
+
+	navbarToggleClick(e) {
+		this.setState({navbarToggleCollapsed: !this.state.navbarToggleCollapsed});
 	}
 
 	componentWillMount() {
@@ -54,7 +60,15 @@ export default class Navbar extends Component {
 							FbxDevs
 						</a>
 					</BSNavbar.Brand>
-					<BSNavbar.Toggle />
+					<BSNavbar.Toggle
+						className={`spinner-master ${this.state.navbarToggleCollapsed ? '' : 'animate'}`}
+						onClick={this.navbarToggleClick}
+					>
+						<span className='sr-only'>Toggle Navigation</span>
+						<span className={`icon-bar spinner diagonal part-1 ${this.state.navbarToggleCollapsed ? '' : 'animate'}`}></span>
+						<span className={`icon-bar spinner horizontal ${this.state.navbarToggleCollapsed ? '' : 'animate'}`}></span>
+						<span className={`icon-bar spinner diagonal part-2 ${this.state.navbarToggleCollapsed ? '' : 'animate'}`}></span>
+					</BSNavbar.Toggle>
 				</BSNavbar.Header>
 				
 				<BSNavbar.Collapse>

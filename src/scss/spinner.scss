@@ -1,0 +1,41 @@
+/*
+	This is the bits that make the button on
+	the navbar spin into an 'X' like they do.
+
+	This code was originally found here:
+
+	https://codepen.io/mrnathan8/pen/mgFqJ?editors=1100
+
+	...and converted to SCSS, with some bits
+	changed (Removed dependency on checkbox,
+	tweaked values to fit our case).
+*/
+
+.spinner-master {
+	* {
+		transition: all 0.3s;
+	}
+
+	&.animate {
+		padding-right: 0px;
+	}
+
+	.animate {
+		&.horizontal {
+			opacity: 0;
+		}
+		&.diagonal {
+			&.part-1 {
+				transform: rotate(402deg) translateY(8px);
+				margin-left: auto;
+				margin-right: auto;
+			}
+
+			&.part-2 {
+				transform: rotate(-402deg) translateY(-8px);
+				margin-left: auto;
+				margin-right: auto;
+			}
+		}
+	}
+}

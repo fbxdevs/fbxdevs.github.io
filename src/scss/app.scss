@@ -10,6 +10,20 @@ $ICE: #3bc6ed;
 			color: $ICE;
 		}
 	}
+
+	.container {
+		.navbar-header {
+			.navbar-toggle {
+				&:focus {
+					background-color: inherit;
+				}
+
+				.icon-bar {
+					background-color: $ICE;
+				}
+			}
+		}
+	}
 }
 
 .bigText {

@@ -49427,14 +49427,21 @@ var Navbar = function (_Component) {
 		var _this = _possibleConstructorReturn(this, (Navbar.__proto__ || Object.getPrototypeOf(Navbar)).call(this, props));
 
 		_this.state = {
-			active: ''
+			active: '',
+			navbarToggleCollapsed: true
 		};
 
 		_this.setActive = _this.setActive.bind(_this);
+		_this.navbarToggleClick = _this.navbarToggleClick.bind(_this);
 		return _this;
 	}
 
 	_createClass(Navbar, [{
+		key: 'navbarToggleClick',
+		value: function navbarToggleClick(e) {
+			this.setState({ navbarToggleCollapsed: !this.state.navbarToggleCollapsed });
+		}
+	}, {
 		key: 'componentWillMount',
 		value: function componentWillMount() {
 			this.setState({
@@ -49483,7 +49490,21 @@ var Navbar = function (_Component) {
 							'\xA0 FbxDevs'
 						)
 					),
-					React.createElement(_reactBootstrap.Navbar.Toggle, null)
+					React.createElement(
+						_reactBootstrap.Navbar.Toggle,
+						{
+							className: 'spinner-master ' + (this.state.navbarToggleCollapsed ? '' : 'animate'),
+							onClick: this.navbarToggleClick
+						},
+						React.createElement(
+							'span',
+							{ className: 'sr-only' },
+							'Toggle Navigation'
+						),
+						React.createElement('span', { className: 'icon-bar spinner diagonal part-1 ' + (this.state.navbarToggleCollapsed ? '' : 'animate') }),
+						React.createElement('span', { className: 'icon-bar spinner horizontal ' + (this.state.navbarToggleCollapsed ? '' : 'animate') }),
+						React.createElement('span', { className: 'icon-bar spinner diagonal part-2 ' + (this.state.navbarToggleCollapsed ? '' : 'animate') })
+					)
 				),
 				React.createElement(
 					_reactBootstrap.Navbar.Collapse,
