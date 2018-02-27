@@ -10,7 +10,7 @@ import About from './components/routes/About';
 import Contact from './components/routes/Contact';
 import Meetup from './components/routes/Meetup';
 
-const pollId="df2abb36pgc55qbx";
+const pollId="bgumhr2cchzuw76y";
 
 const ROUTES = [
 	{
