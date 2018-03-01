@@ -49314,7 +49314,7 @@ var App = function (_Component) {
 _reactDom2.default.render(React.createElement(App, null), document.getElementById('app'));
 
 },{"./components/Navbar":496,"./components/NoMatch":497,"./components/routes/About":500,"./components/routes/Contact":501,"./components/routes/Home":502,"./components/routes/Meetup":503,"react":487,"react-dom":292,"react-router-dom":447}],495:[function(require,module,exports){
-"use strict";
+'use strict';
 
 Object.defineProperty(exports, "__esModule", {
 	value: true
@@ -49322,15 +49322,15 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = require("react");
+var _react = require('react');
+
+var _reactBootstrap = require('react-bootstrap');
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-// import {Grid, Row, Col} from 'react-bootstrap';
 
 var DoodlePage = function (_Component) {
 	_inherits(DoodlePage, _Component);
@@ -49342,20 +49342,34 @@ var DoodlePage = function (_Component) {
 	}
 
 	_createClass(DoodlePage, [{
-		key: "componentWillMount",
+		key: 'componentWillMount',
 		value: function componentWillMount() {}
 	}, {
-		key: "componentDidMount",
+		key: 'componentDidMount',
 		value: function componentDidMount() {}
 	}, {
-		key: "render",
+		key: 'render',
 		value: function render() {
 			return React.createElement(
-				"div",
-				{ id: "doodle-poll-container" },
-				React.createElement("iframe", { id: "doodle-poll",
-					className: "text-center",
-					src: "https://doodle.com/poll/" + this.props.pollId })
+				_reactBootstrap.Grid,
+				null,
+				React.createElement(
+					_reactBootstrap.Row,
+					{ className: 'show-grid' },
+					React.createElement(_reactBootstrap.Col, { xs: 2, sm: 2, md: 2, lg: 2 }),
+					React.createElement(
+						_reactBootstrap.Col,
+						{ xs: 8, sm: 8, md: 8, lg: 8 },
+						React.createElement(
+							'div',
+							{ id: 'doodle-poll-container' },
+							React.createElement('iframe', { id: 'doodle-poll',
+								className: 'text-center',
+								src: 'https://doodle.com/poll/' + this.props.pollId })
+						)
+					),
+					React.createElement(_reactBootstrap.Col, { xs: 2, sm: 2, md: 2, lg: 2 })
+				)
 			);
 		}
 	}]);
@@ -49365,7 +49379,7 @@ var DoodlePage = function (_Component) {
 
 exports.default = DoodlePage;
 
-},{"react":487}],496:[function(require,module,exports){
+},{"react":487,"react-bootstrap":282}],496:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
