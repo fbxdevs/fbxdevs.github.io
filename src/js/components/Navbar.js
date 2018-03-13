@@ -53,7 +53,11 @@ export default class Navbar extends Component {
 					<BSNavbar.Brand>
 						<a
 							className='nav-link'
-							onClick={() => {this.setActive('home', '/#/home');}}
+							onClick={() => {
+								this.setActive('home', '/home');
+								if(!this.state.navbarToggleCollapsed)
+									document.getElementById('navbar-toggle').click();
+							}}
 							href="/#/home"
 						>
 							<FontAwesomeIcon icon={faFileCode} />&nbsp;
@@ -61,6 +65,7 @@ export default class Navbar extends Component {
 						</a>
 					</BSNavbar.Brand>
 					<BSNavbar.Toggle
+						id={`navbar-toggle`}
 						className={`spinner-master ${this.state.navbarToggleCollapsed ? '' : 'animate'}`}
 					>
 						<span className='sr-only'>Toggle Navigation</span>
@@ -96,6 +101,7 @@ export default class Navbar extends Component {
 							return null;
 						})}
 					</Nav>
+
 					<Nav pullRight>
 						<NavItem className='nav-link' href='https://fbxdevs-slack-signup.herokuapp.com' target='_blank'>
 							<FontAwesomeIcon icon={['fab', 'slack']} />

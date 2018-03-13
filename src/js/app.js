@@ -5,51 +5,7 @@ import {HashRouter, Route, Redirect, Switch} from 'react-router-dom';
 import NoMatch from './components/NoMatch';
 import Navbar from './components/Navbar';
 
-import Home from './components/routes/Home';
-import About from './components/routes/About';
-import Contact from './components/routes/Contact';
-import Meetup from './components/routes/Meetup';
-
-const pollId = 'bgumhr2cchzuw76y';
-
-const ROUTES = [
-	{
-		'title': 'Home',
-		'href': '/home',
-		'component': (props) => {
-			return (
-				<Home {...props} />
-			);
-		},
-	},
-	{
-		'title': 'Meetup',
-		'href': '/meetup',
-		'component': (props) => {
-			return (
-				<Meetup pollId={pollId} {...props} />
-			);
-		},
-	},
-	{
-		'title': 'About',
-		'href': '/about',
-		'component': (props) => {
-			return (
-				<About {...props} />
-			);
-		},
-	},
-	{
-		'title': 'Contact',
-		'href': '/contact',
-		'component': (props) => {
-			return (
-				<Contact {...props} />
-			);
-		},
-	},
-];
+import ROUTES from './routes.js';
 
 class App extends Component {
 	render() {

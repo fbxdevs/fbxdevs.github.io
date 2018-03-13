@@ -49199,8 +49199,6 @@ module.exports = warning;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
 var _react = require('react');
 
 var _reactDom = require('react-dom');
@@ -49217,21 +49215,9 @@ var _Navbar = require('./components/Navbar');
 
 var _Navbar2 = _interopRequireDefault(_Navbar);
 
-var _Home = require('./components/routes/Home');
+var _routes = require('./routes.js');
 
-var _Home2 = _interopRequireDefault(_Home);
-
-var _About = require('./components/routes/About');
-
-var _About2 = _interopRequireDefault(_About);
-
-var _Contact = require('./components/routes/Contact');
-
-var _Contact2 = _interopRequireDefault(_Contact);
-
-var _Meetup = require('./components/routes/Meetup');
-
-var _Meetup2 = _interopRequireDefault(_Meetup);
+var _routes2 = _interopRequireDefault(_routes);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -49240,34 +49226,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var pollId = 'bgumhr2cchzuw76y';
-
-var ROUTES = [{
-	'title': 'Home',
-	'href': '/home',
-	'component': function component(props) {
-		return React.createElement(_Home2.default, props);
-	}
-}, {
-	'title': 'Meetup',
-	'href': '/meetup',
-	'component': function component(props) {
-		return React.createElement(_Meetup2.default, _extends({ pollId: pollId }, props));
-	}
-}, {
-	'title': 'About',
-	'href': '/about',
-	'component': function component(props) {
-		return React.createElement(_About2.default, props);
-	}
-}, {
-	'title': 'Contact',
-	'href': '/contact',
-	'component': function component(props) {
-		return React.createElement(_Contact2.default, props);
-	}
-}];
 
 var App = function (_Component) {
 	_inherits(App, _Component);
@@ -49287,14 +49245,14 @@ var App = function (_Component) {
 				React.createElement(
 					'div',
 					null,
-					React.createElement(_Navbar2.default, { links: ROUTES }),
+					React.createElement(_Navbar2.default, { links: _routes2.default }),
 					React.createElement(
 						'div',
 						{ className: 'container' },
 						React.createElement(
 							_reactRouterDom.Switch,
 							null,
-							ROUTES.map(function (link, i) {
+							_routes2.default.map(function (link, i) {
 								return React.createElement(_reactRouterDom.Route, {
 									path: link.href,
 									component: link.component });
@@ -49313,7 +49271,7 @@ var App = function (_Component) {
 
 _reactDom2.default.render(React.createElement(App, null), document.getElementById('app'));
 
-},{"./components/Navbar":496,"./components/NoMatch":497,"./components/routes/About":500,"./components/routes/Contact":501,"./components/routes/Home":502,"./components/routes/Meetup":503,"react":487,"react-dom":292,"react-router-dom":447}],495:[function(require,module,exports){
+},{"./components/Navbar":496,"./components/NoMatch":497,"./routes.js":505,"react":487,"react-dom":292,"react-router-dom":447}],495:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -49468,7 +49426,8 @@ var Navbar = function (_Component) {
 							{
 								className: 'nav-link',
 								onClick: function onClick() {
-									_this2.setActive('home', '/#/home');
+									_this2.setActive('home', '/home');
+									if (!_this2.state.navbarToggleCollapsed) document.getElementById('navbar-toggle').click();
 								},
 								href: '/#/home'
 							},
@@ -49479,6 +49438,7 @@ var Navbar = function (_Component) {
 					React.createElement(
 						_reactBootstrap.Navbar.Toggle,
 						{
+							id: 'navbar-toggle',
 							className: 'spinner-master ' + (this.state.navbarToggleCollapsed ? '' : 'animate')
 						},
 						React.createElement(
@@ -49998,4 +49958,74 @@ var Meetup = function (_Component) {
 
 exports.default = Meetup;
 
-},{"../DoodlePage":495,"../UniCol":499,"react":487,"react-bootstrap":282}]},{},[494]);
+},{"../DoodlePage":495,"../UniCol":499,"react":487,"react-bootstrap":282}],504:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var pollId = 'bgumhr2cchzuw76y';
+
+exports.default = pollId;
+
+},{}],505:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _Home = require('./components/routes/Home');
+
+var _Home2 = _interopRequireDefault(_Home);
+
+var _About = require('./components/routes/About');
+
+var _About2 = _interopRequireDefault(_About);
+
+var _Contact = require('./components/routes/Contact');
+
+var _Contact2 = _interopRequireDefault(_Contact);
+
+var _Meetup = require('./components/routes/Meetup');
+
+var _Meetup2 = _interopRequireDefault(_Meetup);
+
+var _pollId = require('./pollId.js');
+
+var _pollId2 = _interopRequireDefault(_pollId);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var ROUTES = [{
+	'title': 'Home',
+	'href': '/home',
+	'display': false,
+	'component': function component(props) {
+		return React.createElement(_Home2.default, props);
+	}
+}, {
+	'title': 'Meetup',
+	'href': '/meetup',
+	'component': function component(props) {
+		return React.createElement(_Meetup2.default, _extends({ pollId: _pollId2.default }, props));
+	}
+}, {
+	'title': 'About',
+	'href': '/about',
+	'component': function component(props) {
+		return React.createElement(_About2.default, props);
+	}
+}, {
+	'title': 'Contact',
+	'href': '/contact',
+	'component': function component(props) {
+		return React.createElement(_Contact2.default, props);
+	}
+}];
+
+exports.default = ROUTES;
+
+},{"./components/routes/About":500,"./components/routes/Contact":501,"./components/routes/Home":502,"./components/routes/Meetup":503,"./pollId.js":504}]},{},[494]);
